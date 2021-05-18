@@ -1,0 +1,105 @@
+﻿<div class="form-group" class="col-sm-6 offset-sm-3">
+
+    <h2>Cadastro</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="nome">Nome *</label>
+            <input type="text" formControlName="nome" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.nome.errors }"/>
+            <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+                <div *ngIf="f.nome.errors.required">O campo nome é obrigatório</div>
+            </div>
+        </div>
+        <div>
+            <div class="form-group" id="inline">
+                <label for="idade">Idade *</label>
+                <input type="text" formControlName="idade" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.idade.errors }"/>
+                <div *ngIf="submitted && f.idade.errors" class="invalid-feedback">
+                    <div *ngIf="f.idade.errors.required">O campo idade é obrigatório</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dtInicio" >Periodo de inicio *</label>
+                <input type="Date" formControlName="dtInicio" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.dtInicio.errors }"/>
+                <div *ngIf="submitted && f.dtInicio.errors" class="invalid-feedback">
+                    <div *ngIf="f.dtInicio.errors.required">O campo idade é obrigatório</div>
+                </div>
+                <label for="dtFim" style="margin-top: 20px;">Periodo de Finalização *</label>
+                <input type="Date" formControlName="dtFim" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.dtFim.errors }"/>
+                <div *ngIf="submitted && f.dtFim.errors" class="invalid-feedback">
+                    <div *ngIf="f.dtFim.errors.required">O campo idade é obrigatório</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone *</label>
+                <input type="text" formControlName="telefone" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.telefone.errors }"/>
+                <div *ngIf="submitted && f.telefone.errors" class="invalid-feedback">
+                    <div *ngIf="f.telefone.errors.required">O Campo telefone é obrigatório</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="sexo">Sexo *</label>
+            <select id="sexo" formControlName="sexo" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.sexo.errors }">
+                <option value="Outros">Outros</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+            </select>
+            <div *ngIf="submitted && f.sexo.errors" class="invalid-feedback">
+                <div *ngIf="f.sexo.errors.required">O Campo sexo é obrigatório</div>
+            </div>
+        </div>
+
+        <div class="form-group" id="email">
+            <label for="email">E-mail *</label>
+            <input type="text" formControlName="email" class="form-control" placeholder="exemplo@email.com"
+                   [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">O campo email é obrigatório</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="atuacao">Você atua ou já atuou com TI?</label><br>
+            <input type="radio" formControlName="atuacao" value="sim"/>
+            <label for="atuacao">Sim</label><br>
+            <input type="radio" formControlName="atuacao" value="não"/>
+            <label for="atuacao">Não</label><br>
+            <div *ngIf="submitted && f.atuacao.errors" class="invalid-feedback">
+                <div *ngIf="f.atuacao.errors.required">O campo atuacao é obrigatório</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="usuario">Usuario *</label>
+            <input type="text" formControlName="usuario" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.usuario.errors }"/>
+            <div *ngIf="submitted && f.usuario.errors" class="invalid-feedback">
+                <div *ngIf="f.usuario.errors.required">O campo usuario é obrigatório</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha *</label>
+            <input type="password" formControlName="senha" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.senha.errors }"/>
+            <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">
+                <div *ngIf="f.senha.errors.required">o campo senha é obrigatório</div>
+                <div *ngIf="f.senha.errors.minlength">A Senha deve conter no minimo 6 caracteres</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Registrar
+            </button>
+            <a routerLink="/login" class="btn btn-danger" style="margin-left: 20px;">Cancelar</a>
+        </div>
+    </form>
+</div>

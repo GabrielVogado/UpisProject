@@ -1,0 +1,33 @@
+﻿<div class="col-sm-12 user-container">
+    <h2 style="margin: auto"> Lista de Usuarios</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Idade</th>
+            <th>Sexo</th>
+            <th>Periodo Inicio</th>
+            <th>Periodo Fim</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pessoa of pessoas">
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.telefone}}</td>
+            <td>{{pessoa.email}}</td>
+            <td>{{pessoa.idade}}</td>
+            <td>{{pessoa.sexo}}</td>
+            <td>{{pessoa.dtInicio}}</td>
+            <td>{{pessoa.dtFim}}</td>
+            <td></td>
+            <td>
+                <button class="btn btn-danger" (click)="deletePessoa(pessoa.codigo)"> Delete</button>
+                <button class="btn btn-success" [routerLink]="['/editar', pessoa.codigo]" style="margin-left: 20px;">Editar
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

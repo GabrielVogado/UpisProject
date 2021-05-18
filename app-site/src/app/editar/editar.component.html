@@ -1,0 +1,73 @@
+<div class="col-md-6 user-container">
+    <h2 class="text-center"> Editar usuário </h2>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input hidden="hidden" type="text" formControlName="codigo" placeholder="codigo" name="codigo" class="form-control"
+                   id="codigo" [value]="pessoa.codigo" [ngModel]="pessoa.codigo"/>
+        </div>
+        <div class="form-group">
+            <label for="nome"> Nome *</label>
+            <input type="text" formControlName="nome" placeholder="nome" name="nome" class="form-control"
+                   id="nome" [value]="pessoa.nome" [ngModel]="pessoa.nome"/>
+        </div>
+        <div class="form-group">
+            <label for="telefone"> Nome *</label>
+            <input type="text" formControlName="telefone" placeholder="telefone" name="telefone" class="form-control"
+                   id="telefone" [value]="pessoa.telefone" [ngModel]="pessoa.telefone"/>
+        </div>
+        <div class="form-group">
+            <label for="idade"> Idade *</label>
+            <input type="text" formControlName="idade" placeholder="idade" name="idade" class="form-control"
+                   id="idade" [value]="pessoa.idade" [ngModel]="pessoa.idade"/>
+        </div>
+        <div class="form-group">
+            <label for="dtInicio" >Periodo de inicio *</label>
+            <input type="Date" formControlName="dtInicio" placeholder="dtInicio" name="dtInicio" class="form-control"
+                   id="dtInicio" [value]="pessoa.dtInicio" [ngModel]="pessoa.dtInicio"/>
+
+            <label for="dtFim" style="margin-top: 20px;">Periodo de Finalização *</label>
+            <input type="Date" formControlName="dtFim" placeholder="dtFim" name="dtFim" class="form-control"
+                   id="dtFim" [value]="pessoa.dtFim" [ngModel]="pessoa.dtFim"/>
+        </div>
+        <div class="form-group">
+            <label for="sexo">Sexo *</label>
+            <select id="sexo" formControlName="sexo" class="form-control"
+                    [value]="pessoa.sexo" [ngModel]="pessoa.sexo">
+                <option value="Outros">Outros</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="text" formControlName="email" class="form-control" [value]="pessoa.email" [ngModel]="pessoa.email"/>
+        </div>
+        <div class="form-group">
+            <label for="atuacao">Você atua ou já atuou com TI? *</label><br>
+            <input type="radio" formControlName="atuacao" value="sim"/>
+            <label for="atuacao">Sim</label><br>
+            <input type="radio" formControlName="atuacao" value="não"/>
+            <label for="atuacao">Não</label><br>
+        </div>
+        <div class="form-group">
+            <label for="usuario"> Usuario *</label>
+            <input type="text" formControlName="usuario" placeholder="usuario" class="form-control"
+                   id="usuario" [value]="pessoa.usuario" name="usuario"
+                   [ngModel]="pessoa.usuario"/>
+        </div>
+
+        <div class="form-group">
+            <label for="senha"> Senha *</label>
+            <input type="password" formControlName="senha" placeholder="senha" name="senha" class="form-control"
+                   id="senha" [value]="pessoa.senha" [ngModel]="pessoa.senha"/>
+        </div>
+
+        <button class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+        </button>
+
+            <!--<button class="btn btn-primary" (click)="atuaizarPessoa(pessoa)"> Atualizar</button>-->
+            <button class="btn btn-danger" [routerLink]="['/listar']" style="margin-left: 20px;"> Cancelar</button>
+    </form>
+</div>
